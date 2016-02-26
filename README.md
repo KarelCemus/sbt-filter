@@ -5,8 +5,8 @@
 </p>
 
 
-Member of [SbtWeb](https://github.com/sbt/sbt-web) plugin pipeline to filters out assets. The intended use is **to remove**,
-e.g., `*.map`, original `*.less`, unminified assets, etc.
+Member of [SbtWeb](https://github.com/sbt/sbt-web) plugin pipeline to filter out assets. The intended use is **to remove** assets
+from the output package, e.g., `*.map`, original `*.less`, unminified files, etc.
 
 This plugin may be used to remove any intermediate or unnecessary assets from the product build of your project.
 Only assets directly owned by the project can be filtered.
@@ -26,6 +26,8 @@ lazy val root = (project in file(".")).enablePlugins(SbtWeb)
 The plugin must then be added as a new stage in the asset pipeline.
 
 ```scala
+import com.github.karelcemus.filter.Import._
+
 // either
 pipelineStages := Seq( filter )
 
@@ -53,6 +55,10 @@ the RequireJS plugin:
 excludeFilter in filter := "*.js" - "main.min.js"
 ```
 
+Another approach is to **whitelist** all assets to be passed through, but the whitelist must **be exhaustive**.
+To do this use `includeFilter in filter`. You may whitelist more files and then some of them blacklist through 
+`excludeFilter`. In consequence, the filter plugin lets pass through all whitelisted assets, which are not blacklisted.
+
 ## PatternFileFilter
 
 SBT comes with several file filter, but does not provide convenient implicits for filtering files by regular expressions.
@@ -60,5 +66,12 @@ This plugin also provides a filter converting any regex into `FileFilter`. The f
 **absolute path**.
 
 ```scala
+import com.github.karelcemus.filter.Import._
+
 excludeFilter in filter := ".*/images/sprites/.*".r
 ```
+
+## Acknowledgement
+
+This implementation is inspired by [sbt-filter](https://github.com/rgcottrell/sbt-filter) by @rgcottrell, 
+whose implementation did not work for me.
