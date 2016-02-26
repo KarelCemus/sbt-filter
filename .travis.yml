@@ -1,0 +1,18 @@
+# See http://about.travis-ci.org/docs/user/build-configuration/
+language: scala
+jdk:
+- oraclejdk8
+scala:
+- 2.11.2
+branches:
+  only:
+  - master
+cache:
+  directories:
+  - $HOME/.ivy2/cache
+before_script:
+# publish on master, test otherwise
+- ! '[[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == false ]] && SBT_CMD=publish || SBT_CMD=test'
+script:
+- sbt +$SBT_CMD
+
