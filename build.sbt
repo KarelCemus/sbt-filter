@@ -22,14 +22,6 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-web" % "1.1.1")
 publishMavenStyle := true
 
 pomExtra :=
-  <url>https://github.com/karelcemus/sbt-filter</url>
-  <licenses>
-    <license>
-      <name>Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
   <scm>
     <url>git@github.com:karelcemus/sbt-filter.git</url>
     <connection>scm:git@github.com:karelcemus/sbt-filter.git</connection>
