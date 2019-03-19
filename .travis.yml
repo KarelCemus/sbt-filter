@@ -12,7 +12,7 @@ cache:
   - $HOME/.ivy2/cache
 before_script:
 # publish on master, test otherwise
-- ! '[[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == false ]] && SBT_CMD=^publish || SBT_CMD=^test'
+- ! '[[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == false ]] && SBT_CMD=publish || SBT_CMD=test'
 script:
-- sbt +$SBT_CMD
+- sbt ^$SBT_CMD
 
