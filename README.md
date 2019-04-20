@@ -14,7 +14,7 @@ Only assets directly owned by the project can be filtered.
 Add the plugin to the `project/plugins.sbt` of your project:
 
 ```scala
-addSbtPlugin("com.github.karelcemus" % "sbt-filter" % "1.0.0")
+addSbtPlugin("com.github.karelcemus" % "sbt-filter" % "1.1.0")
 ```
 
 Your project's build file also needs to enable sbt-web plugins. For example with build.sbt:
