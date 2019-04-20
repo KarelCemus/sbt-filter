@@ -4,11 +4,11 @@ organization := "com.github.karelcemus"
 
 name := "sbt-filter"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.12.8"
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 
-javacOptions ++= Seq( "-source", "1.7", "-target", "1.7", "-Xlint:unchecked", "-encoding", "UTF-8" )
+javacOptions ++= Seq( "-source", "1.8", "-target", "1.8", "-Xlint:unchecked", "-encoding", "UTF-8" )
 
 scalacOptions ++= Seq( "-deprecation", "-feature", "-unchecked" )
 
@@ -17,7 +17,7 @@ homepage := Some( url( "https://github.com/karelcemus/sbt-filter" ) )
 licenses := Seq( "Apache 2" -> url( "http://www.apache.org/licenses/LICENSE-2.0" ) )
 
 // type safe javascript plugin, required dependency
-addSbtPlugin("com.typesafe.sbt" % "sbt-web" % "1.1.1")
+addSbtPlugin("com.typesafe.sbt" % "sbt-web" % "1.4.4")
 
 publishMavenStyle := true
 
